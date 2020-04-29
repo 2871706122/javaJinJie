@@ -4,15 +4,15 @@ package cn.zys.data429_001;
 //2.为成员变量设置一组getter和setter
 //3.设置一个无参数的构造函数
 //4.设置一个全参数的构造函数
-public class Test01 {
+public class BiaoZhunClass {
     private String name;
     private char sex;
     private int age;
 
-    public Test01() {
+    public BiaoZhunClass() {
     }
 
-    public Test01(String name, char sex, int age) {
+    public BiaoZhunClass(String name, char sex, int age) {
         this.name = name;
         this.sex = sex;
         this.age = age;
