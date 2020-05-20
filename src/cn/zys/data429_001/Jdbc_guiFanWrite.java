@@ -1,9 +1,6 @@
 package cn.zys.data429_001;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Jdbc_guiFanWrite {
     public static void main(String[] args) {
@@ -29,6 +26,7 @@ public class Jdbc_guiFanWrite {
             e.printStackTrace();
         }finally {
             //关闭,释放资源
+
             if(stm!=null){
                 try {
                     stm.close();
