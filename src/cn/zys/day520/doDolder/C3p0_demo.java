@@ -7,8 +7,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class C3p0_demo {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws SQLException {
+        new C3p0_demo().getData();
     }
 
     public static void getData() throws SQLException {
@@ -17,6 +17,6 @@ public class C3p0_demo {
 
         //拿到其中的一个连接对象(这里才是拿其中的连接对象
         Connection connectionObj = dataSourceObj.getConnection();
-
+        System.out.println(connectionObj);
     }
 }
