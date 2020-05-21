@@ -9,7 +9,7 @@ public class JavaAndMysql_JDBC {
     public static void main(String[] args) throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
         //需要注意一下自己电脑上的端口是3306，数据库名称和表的名称注意要修改才能使用
-        Connection conObj = DriverManager.getConnection("jdbc:mysql://localhost:8411/zys001","root","8411");
+        Connection conObj = DriverManager.getConnection("jdbc:mysql://localhost:8411/zys001", "root", "8411");
 
         Statement stm = conObj.createStatement();
 
@@ -19,19 +19,20 @@ public class JavaAndMysql_JDBC {
         //System.out.println(res);
 
         //删除数据
-        String sql = "delete from user_msg where id='3'";
-        int res = stm.executeUpdate(sql);
-        System.out.println(res);
+//        String sql = "delete from user_msg where id='3'";
+//        int res = stm.executeUpdate(sql);
+//        System.out.println(res);
 
 
         //数据库查询
-        //String sql = "select * from user_msg where id = 2";
-        //ResultSet res = stm.executeQuery(sql);
-        //while (res.next()) {
-        //System.out.println(res.getString("id")+"\t");
-        //System.out.println(res.getString("name")+"\t");
-        //System.out.println(res.getString("age")+"\t");
-        //}
+        String sql = "select * from user_msg where id = 1";
+        ResultSet res = stm.executeQuery(sql);
+        //System.out.println(res.next());
+        while (res.next()) {
+            System.out.println(res.getString("id") + "\t");
+            System.out.println(res.getString("name") + "\t");
+            System.out.println(res.getString("age") + "\t");
+        }
 
         //更改数据库
         //String sql = "update user_msg set sex = '男' where id = 2";
