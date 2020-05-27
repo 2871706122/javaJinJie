@@ -1,5 +1,6 @@
 package cn.zys.day520.doDolder;
 
+import cn.zys.day520.tablesObj.User_msg_data;
 import cn.zys.day520.uitles.JdbcUitles;
 
 import java.sql.*;

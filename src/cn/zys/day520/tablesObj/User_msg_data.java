@@ -1,4 +1,4 @@
-package cn.zys.day520.doDolder;
+package cn.zys.day520.tablesObj;
 
 public class User_msg_data {
     private int id;
