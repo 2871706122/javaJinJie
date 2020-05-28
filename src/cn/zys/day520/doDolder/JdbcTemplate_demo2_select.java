@@ -3,6 +3,7 @@ package cn.zys.day520.doDolder;
 import cn.zys.day520.tablesObj.User_msg_data;
 import cn.zys.day520.uitles.Jdbc_druid_uitles;
 import org.junit.Test;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -72,5 +73,31 @@ public class JdbcTemplate_demo2_select {
         //User_msg_data{id=1, name='张三', age=20, sex='男'}
         //User_msg_data{id=2, name='王五', age=10, sex='男'}
         //User_msg_data{id=14, name='name', age=20, sex='女'}
+    }
+
+    /**
+     * 将结果封装成emp对象的list集合(java bean对象  简化版
+     */
+    @Test
+    public void getDataBean2(){
+        String sql = "select * from user_msg";
+        List<User_msg_data> arr = jdbcTemplateObj.query(sql, new BeanPropertyRowMapper<User_msg_data>(User_msg_data.class));
+        for (User_msg_data obj : arr) {
+            System.out.println(obj);
+        }
+        //结果:
+        //User_msg_data{id=1, name='张三', age=20, sex='男'}
+        //User_msg_data{id=2, name='王五', age=10, sex='男'}
+        //User_msg_data{id=14, name='name', age=20, sex='女'}
+    }
+
+    /**
+     * 查询总记录数
+     */
+    @Test
+    public void getNum(){
+        String sql = "select count(id) from user_msg";
+        Long count = jdbcTemplateObj.queryForObject(sql, Long.class);
+        System.out.println(count);
     }
 }
